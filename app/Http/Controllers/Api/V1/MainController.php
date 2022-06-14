@@ -24,8 +24,7 @@ class MainController extends Controller
                 $page = '';
             }
     
-            $client = new Client();
-            $response1 = $client->request('GET', 'https://api.thecatapi.com/v1/breeds'.$page);
+            $response1 = Http::get('https://api.thecatapi.com/v1/breeds'.$page);
             $result1 = json_decode($response1->getBody(), true);
 
             foreach($result1 as $key => $value){
@@ -40,7 +39,7 @@ class MainController extends Controller
                 ];    
             }
             
-            $response2 = $client->request('GET', 'https://api.TheDogAPI.com/v1/breeds'.$page);
+            $response2 = Http::get('https://api.TheDogAPI.com/v1/breeds'.$page);
             $result2 = json_decode($response2->getBody(), true);
             
             foreach($result2 as $key => $value){
@@ -77,8 +76,7 @@ class MainController extends Controller
                 $breed_ids = null;
             }
     
-            $client = new Client();
-            $response1 = $client->request('GET', 'https://api.thecatapi.com/v1/images/search?breed_ids='.$breed_ids);
+            $response1 = Http::get('https://api.thecatapi.com/v1/images/search?breed_ids='.$breed_ids);
             $result1 = json_decode($response1->getBody(), true);
             foreach($result1 as $key => $value){
                 foreach($value['breeds'] as $item){
@@ -88,7 +86,7 @@ class MainController extends Controller
                 }
             }
             
-            $response2 = $client->request('GET', 'https://api.TheDogAPI.com/v1/images/search?breed_ids='.$breed_ids);
+            $response2 = Http::get('https://api.TheDogAPI.com/v1/images/search?breed_ids='.$breed_ids);
             $result2 = json_decode($response2->getBody(), true);
             
             foreach($result2 as $key => $value){
@@ -122,8 +120,7 @@ class MainController extends Controller
                 $page = '';
             }
     
-            $client = new Client();
-            $response1 = $client->request('GET', 'https://api.thecatapi.com/v1/breeds'.$page);
+            $response1 = Http::get('https://api.thecatapi.com/v1/breeds'.$page);
             $result1 = json_decode($response1->getBody(), true);
 
             foreach($result1 as $key => $value){
@@ -135,7 +132,7 @@ class MainController extends Controller
                 ];    
             }
             
-            $response2 = $client->request('GET', 'https://api.TheDogAPI.com/v1/breeds'.$page);
+            $response2 = $response1 = Http::get('https://api.TheDogAPI.com/v1/breeds'.$page);
             $result2 = json_decode($response2->getBody(), true);
             
             foreach($result2 as $key => $value){
