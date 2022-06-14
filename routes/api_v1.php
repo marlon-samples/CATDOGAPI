@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return ['test'];
-});
+Route::get('/breeds', [App\Http\Controllers\Api\V1\MainController::class, 'breeds'])->name('breeds');
+Route::get('/list', [App\Http\Controllers\Api\V1\MainController::class, 'list'])->name('list');
+Route::get('/images', [App\Http\Controllers\Api\V1\MainController::class, 'images'])->name('images');
+Route::get('/breeds/breed', [App\Http\Controllers\Api\V1\MainController::class, 'breed'])->name('breed');
